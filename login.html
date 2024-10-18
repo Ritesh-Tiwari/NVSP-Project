@@ -1,0 +1,247 @@
+<html>
+
+<head>
+
+    <link rel="icon" href="Images/eci-icon.ico" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/login_css.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/reg-style.css">
+
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        
+        body {
+            background-color: rgb(243, 242, 236);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white">
+            <a class="navbar-link" style="margin-left: 2%;" href="index.html"><span><img src="Images/logo.png"></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon  "></span>
+             </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                <ul class="navbar-nav ml-md-auto font-weight-bolder ">
+                    <li class="nav-item p-lg-3  ">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item p-lg-3">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item p-lg-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Service
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item nav-link" href="login.html">Elector Verification Program</a>
+                            <a class="dropdown-item nav-link" href="">Track Status</a>
+                            <a class="dropdown-item nav-link" href="login.html">Family Tagging</a>
+                        </div>
+                    </li>
+                    <li class="nav-item p-lg-3">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="myform ">
+        <div class="logo mb-1 text-center">
+            <div class="col-md-12 ">
+                <img src="Images/user.png" style="width: 100px; height: 100px;">
+            </div>
+        </div>
+
+        <form action="login.php" method="post" name="login">
+            <div class="row">
+
+                <div class="form-group col-lg-4 text-center">
+                    <label for="exampleInputEmail1">UserName</label>
+                </div>
+                <div class="form-group col-lg-8 ">
+                    <input type="email" name="email" onblur="return email_validate()" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <span id="email_val" class="text-center text-danger"></span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-4 text-center">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Password</label>
+                    </div>
+                </div>
+                <div class="form-group col-lg-8 ">
+                    <div class="form-group">
+                        <input type="password" name="password" onkeyup="return password_val()" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                        <span id="password_val" class="text-danger text-center"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="exampleInputEmail1">Captcha</label>
+                        <input type="text" name="text1" value="" class="bg-light text-center text-primary font-weight-bolder" id="captcha " readonly style="width: 100px; height: 40px;">
+                        <img src="Images/reload.jpg" onclick="fun1() " />
+                    </div>
+                    <div class="form-group col-lg-6 ">
+                        <input type="text " name="text2 " id="b" class="form-control " id="captcha_text " placeholder="Captcha ">
+                        <div class="text-center text-danger" id="captcha_val"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12 text-center ">
+                <button type="submit " class=" btn btn-block mybtn btn-primary tx-tfm " id="button1" onclick="return check()">Login</button>
+            </div>
+
+            <div class="col-md-12 mb-3 mt-3">
+                <div class="text-capitalize text-center font-weight-bold ">
+                    <a class="text-danger" href="reset_password.html">Forgot password ?</a>
+                </div>
+            </div>
+            <div class=" text-center text-capitalize font-weight-bold">
+                <a class="text-info " href="registration.html">Don't have account, Register as a new user.</a>
+            </div>
+        </form>
+
+    </div>
+    </div>
+    <footer class="container-fluid mt-2" style="background-color: rgb(12, 89, 109); width: 100%;">
+        <div class="row">
+            <div class="col-lg-7 col-sm-12">
+                <div class="text-white text-capitalize pt-3">
+                    <h2>contact us</h2>
+                </div>
+                <div>
+                    <p class="text-light pt-3 ">For details of eligibility criteria or any other additional information related to electoral forms, kindly visit<a href="#"> https://eci.gov.in</a></p>
+                </div>
+                <div>
+                    <p class="text-light">For any other technical feedback or issues on the portal kindly send your feedback to ECI Technical Support Toll free Number :1800111950</p>
+                </div>
+            </div>
+            <div class=" col-lg-5 col-sm-12 ">
+                <div class="text-white text-capitalize pt-lg-3 ">
+                    <h2>Other Links</h2>
+                </div>
+                <div class="text-capitalize font-weight-bold pt-3 ">
+                    <a class="text-white " href="# ">Election Commission of India</a>
+                </div>
+                <div class="text-capitalize font-weight-bold pt-3 ">
+                    <a class="text-white " href="# ">Chief Electoral Officer</a>
+                </div>
+            </div>
+            <div class="col-12 text-center text-white ">
+                <hr class="bg-light ">
+                <p>National Voter's Service Portal © Copyright 2019. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav ");
+            if (x.className === "topnav ") {
+                x.className += " responsive ";
+            } else {
+                x.className = "topnav ";
+            }
+        }
+    </script>
+    <script>
+        // xxxxxxxxxxxx validation codes  xxxxxxxxxxxxx
+        function email_validate() {
+
+            var email = document.getElementById("email").value.toString();
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            // alert(email);
+            if (email.length == 0) {
+                document.getElementById("email_val").innerHTML = "** please fill the E-mail ID....";
+                return false;
+            } else if (reg.test(email) == false) {
+                document.getElementById("email_val").innerHTML = "Invalid Email Address...";
+                return false;
+            } else {
+                document.getElementById("email_val").style.display = "none";
+                return true;
+            }
+            return true;
+        }
+
+        function password_val() {
+            var pass = document.getElementById("password").value.toString();
+            var c = /[a-z]/g;
+            var a = /[A-Z]/g;
+            var b = /[0-9]/g;
+            if (pass.length == 0) {
+                document.getElementById("password_val").innerHTML = "** Please Fill your Password...";
+                return false;
+            } else if (pass.length < 6) {
+                document.getElementById("password_val").innerHTML = "* password must contain at least six characters";
+                return false;
+            } else if (!a.test(pass)) {
+                document.getElementById("password_val").innerHTML = "* password must contain at least one uppercase letter (A-Z)!";
+                return false;
+            } else if (!b.test(pass)) {
+                document.getElementById("password_val").innerHTML = "* password must contain at least one number (0-9)!";
+                return false;
+            } else if (!c.test(pass)) {
+                document.getElementById("password_val").innerHTML = "* password must contain at least one lowercase letter (a-z)!";
+                return false;
+            } else {
+                document.getElementById("password_val").style.display = "none";
+            }
+            return true;
+        }
+        var captcha;
+
+        function fun1() {
+            var a = Math.floor((Math.random() * 10));
+            var b = Math.floor((Math.random() * 10));
+            var c = Math.floor((Math.random() * 10));
+            var d = Math.floor((Math.random() * 10));
+
+            captcha = a.toString() + b.toString() + c.toString() + d.toString();
+            document.getElementById("captcha ").value = captcha;
+            return captcha
+
+        }
+
+        window.onload = fun1();
+
+        var a = fun1(captcha);
+
+        function check() {
+            $("#button1").click(function() {
+                fun1();
+            });
+            var b = $('#b').val();
+            if (a != b) {
+
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,655 @@
+<html lang="en">
+
+<head>
+    <link rel="icon" href="Images/eci-icon.ico" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/reg-style.css">
+
+    <script src="bootstrap/jquery-3.4.1.min.js"></script>
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="validation.js"></script>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        
+        body {
+            background-color: rgb(243, 242, 236);
+        }
+        
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar  -->
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white">
+            <a class="navbar-link" style="margin-left: 2%;" href="index.html"><span><img src="Images/logo.png"></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon  "></span>
+             </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                <ul class="navbar-nav ml-md-auto font-weight-bolder ">
+                    <li class="nav-item p-lg-3  ">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item p-lg-3">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item p-lg-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Service
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item nav-link" href="login.html">Elector Verification Program</a>
+                            <a class="dropdown-item nav-link" href="">Track Status</a>
+                            <a class="dropdown-item nav-link" href="login.html">Family Tagging</a>
+                        </div>
+                    </li>
+                    <li class="nav-item p-lg-3">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="collapse navbar-collapse " id="collapsibleNavbar">
+        <ul class="navbar-nav ml-md-auto font-weight-bolder ">
+            <li class="nav-item p-lg-3  ">
+                <a class="nav-link" href="nvsp.html">Home</a>
+            </li>
+            <li class="nav-item p-lg-3">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item p-lg-3 dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Service
+                        </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item nav-link" href="login.html">Elector Verification Program</a>
+                    <a class="dropdown-item nav-link" href="#">Track Status</a>
+                    <a class="dropdown-item nav-link" href="login.html">Family Tagging</a>
+                </div>
+            </li>
+            <li class="nav-item p-lg-3">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+    </header>
+
+    <div class="container">
+
+        <a href="pdf_example.php" class="btn-success">download  PDF</a>
+        <div class="form bg-white" id="page">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Mobile No:</label>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <input type="text" id="a" name="mobile_no" class="form-control" placeholder="Your mobile_no *" onkeyup="return mobileval()"><br>
+
+                        <span id="aa" class="text-danger text-center"></span>
+                    </div>
+
+                </div>
+                <div class="form-group col-lg-8"></div>
+                <div class="form-group col-lg-4 ">
+                    <input type="button" id="save" onclick="save_no()" value="submit" class="btn-outline-success text-center" style="width: 100px; border-radius: 20px;">
+
+
+                </div>
+                <script>
+                    function save_no() {
+                        var a = $("#a").val();
+                        alert(a);
+                        $('mobile_no1').value = a;
+                        $("#mobile_no2").value = a;
+                        $.ajax({
+                            url: "mobile_no_insert.php",
+                            type: "POST",
+                            data: {
+                                a: a,
+
+                            }
+                        });
+                    }
+                </script>
+            </div>
+
+            <form method="POST" action="registration.php" id="form">
+                <div class="row">
+
+                    <div class="form-group col-lg-4">
+                        <input type="radio" name="radio" id="radio1" value="x" checked>I have EPIC number
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="radio" name="radio" id="radio2" value="y"> I don't have EPIC number
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- textboxs -->
+                    <div class="row" id="form1">
+                        <div class="col-md-12">
+                            <input type="hidden" name="mobile_no1">
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Epic Number">Epic Number</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="text" id="epic_no" onkeyup="return epicval()" class="form-control" name="epic_no" placeholder="Epic Number *" />
+                                <span class=" text-danger text-center" id="epic_no_val"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="email" id="email_text1" onkeyup="return emailval()" name="emailid" class="form-control" placeholder="Email *" value="" />
+                                <span class="text-center text-danger" id="email_val"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="password" id="pass_text1" onblur="return val()" name="pass1" class="form-control" placeholder="Password *" value="" />
+                                <span class="text-center text-danger" id="pass_val1"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Confirm_Password">Confirm Password</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="password" id="cpass_text1" onblur="return val()" name="pass2" class="form-control" placeholder="Confirm Password *" value="" />
+                                <span class="text-center text-danger" id="cpass_val1"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 text-center bg-secondary p-md-2" style="border-radius: 5px;">
+                            <button type="submit" class="bg-transparent border-0" name="submit2" style="color: white; font-size: 20px;">Register</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+            <form method="POST" action="registration.php">
+                <div class="row">
+                    <!-- textboxs -->
+                    <div class="row" id="form2" style="display: none;">
+                        <div class="col-md-12">
+                            <input type="hidden" name="mobile_no2">
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="First Name">First Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="text" id="fname_text" onblur="return val()" name="fname" class="form-control" placeholder="First Name *" value="" />
+                                <span class="text-center text-danger" id="fname_val"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Last Name">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="text" id="lname_text" onblur="return val()" name="lname" class="form-control" placeholder="Last Name *" value="" />
+                                <span class="text-center text-danger" id="lname_val"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="email" id="email_text2" onblur="return val()" name="emailid" class="form-control" placeholder="Email *" value="" />
+                                <span class="text-center text-danger" id="email_val2"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="password" id="pass_text2" onblur="return val()" name="pass1" class="form-control" placeholder="Password *" value="" />
+                                <span class="text-center text-danger" id="pass_val2"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Confirm_Password">Confirm Password</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="password" id="cpass_text2" onblur="return val()" name="pass2" class="form-control" placeholder="Confirm Password *" value="" />
+                                <span class="text-center text-danger" id="cpass_val2"></span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label></label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 text-center bg-secondary p-md-2" style="border-radius: 5px;">
+                            <button type="submit" name="submit3" class="bg-transparent border-0" style="color: white; font-size: 20px;">Register</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+            <div class="row">
+                <!-- textboxs -->
+                <div class="row" id="form2" style="display: none;">
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="First Name">First Name</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <input type="text" id="fname_text" onblur="return val()" name="fname" class="form-control" placeholder="First Name *" value="" />
+                            <span class="text-center text-danger" id="fname_val"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Last Name">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <input type="text" id="lname_text" onblur="return val()" name="lname" class="form-control" placeholder="Last Name *" value="" />
+                            <span class="text-center text-danger" id="lname_val"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <input type="email" id="email_text2" onblur="return val()" name="emailid" class="form-control" placeholder="Email *" value="" />
+                            <span class="text-center text-danger" id="email_val2"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label></label>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <input type="password" id="pass_text2" onblur="return val()" name="pass1" class="form-control" placeholder="Password *" value="" />
+                            <span class="text-center text-danger" id="pass_val2"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label></label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Confirm_Password">Confirm Password</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <input type="password" id="cpass_text2" onblur="return val()" name="pass2" class="form-control" placeholder="Confirm Password *" value="" />
+                            <span class="text-center text-danger" id="cpass_val2"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label></label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 text-center bg-secondary p-md-2" style="border-radius: 5px;">
+                        <button type="submit" name="submit3" class="bg-transparent border-0" style="color: white; font-size: 20px;">Register</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-12">
+                <p>Password Pattern :</p>
+                <li>Password must be at least 6 characters long.</li>
+                <li>Passwords must have at least one digit ('0'-'9').</li>
+                <li>Passwords must have at least one special character.</li>
+                <li>Passwords must have at least one uppercase ('A'-'Z').</li>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid mt-2" style="background-color: rgb(12, 89, 109); width: 100%;">
+        <div class="row">
+            <div class="col-lg-7 col-sm-12">
+                <div class="text-white text-capitalize pt-3">
+                    <h2>contact us</h2>
+                </div>
+                <div>
+                    <p class="text-light pt-3 ">For details of eligibility criteria or any other additional information related to electoral forms, kindly visit<a href="#"> https://eci.gov.in</a></p>
+                </div>
+                <div>
+                    <p class="text-light">For any other technical feedback or issues on the portal kindly send your feedback to ECI Technical Support Toll free Number :1800111950</p>
+                </div>
+            </div>
+            <div class=" col-lg-5 col-sm-12 ">
+                <div class="text-white text-capitalize pt-lg-3 ">
+                    <h2>Other Links</h2>
+                </div>
+                <div class="text-capitalize font-weight-bold pt-3 ">
+                    <a class="text-white " href="# ">Election Commission of India</a>
+                </div>
+                <div class="text-capitalize font-weight-bold pt-3 ">
+                    <a class="text-white " href="# ">Chief Electoral Officer</a>
+                </div>
+            </div>
+            <div class="col-12 text-center text-white ">
+                <hr class="bg-light ">
+                <p>National Voter's Service Portal © Copyright 2019. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    // validation checking
+    <script>
+        function val() {
+            var a = document.getElementById("a").value;
+            var epic_no = document.getElementById("epic_no").value;
+            var emailid1 = document.getElementById("email_text1").value;
+            var emailid2 = document.getElementById("email_text2").value;
+            var pass1 = document.getElementById("pass_text1").value;
+            var cpass1 = document.getElementById("cpass_text1").value;
+            var fname = document.getElementById("fname_text").value;
+            var lname = document.getElementById("lname_text").value;
+            var pass2 = document.getElementById("pass_text2").value;
+            var cpass2 = document.getElementById("cpass_text2").value;
+
+
+            // check value fill or not
+            if (a.length == 0 || epic_no.length == 0 || emailid1.length == 0 || pass1.length == 0 || cpass1.length == 0 || fname.length == 0 || lname.length == 0 || pass2.length == 0 || emailid2.length == 0 || cpass2.length == 0) {
+                document.getElementById("aa").innerHTML = "* Please fill your mobile Number...";
+                document.getElementById("epic_no_val").innerHTML = "* Please fill your EPIC Number...";
+                document.getElementById("email_val").innerHTML = "* Please fill your E-mail ID Number...";
+                document.getElementById("pass_val1").innerHTML = "* Please fill your Password...";
+                document.getElementById("cpass_val1").innerHTML = "* Please fill Confirm Password...";
+                document.getElementById("fname_val").innerHTML = "* Please fill your first name...";
+                document.getElementById("lname_val").innerHTML = "* Please fill your Last Name...";
+                document.getElementById("email_val2").innerHTML = "* Please fill your E-mail ID...";
+                document.getElementById("pass_val2").innerHTML = "* Please fill your Password...";
+                document.getElementById("cpass_val2").innerHTML = "* Please fill your Confirm Password ...";
+
+
+            } //else {
+            //     document.getElementById("aa").innerHTML = "";
+            //     document.getElementById("epic_no_val").innerHTML = "";
+            //     document.getElementById("email_val").innerHTML = "";
+            //     document.getElementById("pass_val1").innerHTML = "";
+            //     document.getElementById("cpass_val1").innerHTML = "";
+            //     document.getElementById("fname_val").innerHTML = "";
+            //     document.getElementById("lname_val").innerHTML = "";
+            //     document.getElementById("email_val2").innerHTML = "";
+            //     document.getElementById("pass_val2").innerHTML = "";
+            //     document.getElementById("cpass_val2").innerHTML = "";
+
+
+            // }
+            // check Characters or not
+
+            if (isNaN(a) || isNaN(epic_no)) {
+                document.getElementById("aa").innerHTML = "* Characters not allowed...";
+                document.getElementById("epic_no_val").innerHTML = "* Characters not allowed...";
+            }
+            // Mobile Number validation
+            if (a.length != 10) {
+                document.getElementById("aa").innerHTML = "* Fill valid Mobile Number ...";
+
+            } else if (a.length == 10) {
+                document.getElementById("aa").innerHTML = " ";
+
+            }
+            //check Email validation
+            if ((emailid1.indexOf("@") <= 0) || emailid2.indexOf("@") <= 0) {
+                document.getElementById("email_val").innerHTML = "* @ Invalid Position...";
+                document.getElementById("email_va2").innerHTML = "*  @ Invalid Position.....";
+
+            } else if ((emailid1.charAt(emailid1.length - 4) != ".") && (emailid1.charAt(emailid1.length - 3) != ".") || (emailid2.charAt(emailid2.length - 4) != ".") &&
+                (emailid2.charAt(emailid2.length - 3) != ".")) {
+                document.getElementById("email_val").innerHTML = "* dot(.) Invalid Position...";
+                document.getElementById("email_va2").innerHTML = "*  dot (.) Invalid Position.....";
+
+            }
+
+
+
+
+            return false;
+
+        }
+
+
+
+        // show alert opt
+
+        // var captcha; // function alrt_otp() { // var a = Math.floor((Math.random() * 10)); // var b = Math.floor((Math.random() * 10)); // var c = Math.floor((Math.random() * 10)); // var d = Math.floor((Math.random() * 10)); // captcha = a.toString() + b.toString()
+        +
+        c.toString() + d.toString(); // alert(captcha); // return false; // } // var y = captcha; // function Check_otp() { // var x = document.getElementById("captcha_text").value; // if (y == x) { // alert("both are same"); // } // } //
+    </script>
+    </script>>
+
+    <script>
+        function add() {
+            var a = $("#a").val();
+            alert(a);
+            $.ajax({
+                url: "Registration-form/mobile_no_insert.php",
+                type: "POST",
+                data: {
+                    a: a
+                }
+            });
+        }
+    </script>
+
+    <script>
+        var captcha;
+
+        function fun1() {
+            var a = Math.floor((Math.random() * 10));
+            var b = Math.floor((Math.random() * 10));
+            var c = Math.floor((Math.random() * 10));
+            var d = Math.floor((Math.random() * 10));
+
+            captcha = a.toString() + b.toString() + c.toString() + d.toString();
+
+            document.getElementById("captcha ").value = captcha;
+        }
+
+
+        window.onload = fun1;
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#radio1").click(function() {
+                $("#form2").hide();
+                $("#form1").show();
+            });
+            $("#radio2").click(function() {
+                $("#form1").hide();
+                $("#form2").show();
+            });
+            // $("#otp_btn").click(function() {
+            //     $("#otp_form").show();
+            // });
+            // $("#otp_submit").click(function() {
+            //     $("#otp_form").show();
+
+            // });
+
+        });
+    </script>
+
+</body>
+
+</html>

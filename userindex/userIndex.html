@@ -1,0 +1,259 @@
+<html>
+
+<head>
+
+    <link rel="icon" href="../Images/eci-icon.ico" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"> -->
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+</head>
+<style>
+    * {
+        font-family: sans-serif;
+    }
+    
+    body {
+        background-color: rgb(243, 242, 236);
+    }
+    
+    header,
+    footer,
+    .nav-link {
+        font-size: 16px;
+    }
+    
+    .form-control,
+    .control-label {
+        margin-bottom: 20;
+    }
+</style>
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white">
+            <a class="navbar-link" style="margin-left: 2%;" href="../index.html"><span><img src="../Images/logo.png"></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon  "></span>
+                 </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                <ul class="navbar-nav ml-md-auto font-weight-bolder ">
+                    <li class="nav-item p-lg-3  ">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item p-lg-3">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item p-lg-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Service
+                            </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item nav-link" href="../login.html">Elector Verification Program</a>
+                            <a class="dropdown-item nav-link" href="">Track Status</a>
+                            <a class="dropdown-item nav-link" href="../login.html">Family Tagging</a>
+                        </div>
+                    </li>
+                    <li class="nav-item p-lg-3">
+                        <a class="nav-link" href="../login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#menu1">विवरण द्वारा खोज/Search by Details</a></li>
+            <li><a data-toggle="pill" href="#menu2"> पहचान-पत्र क्र. द्वारा खोज/Search by EPIC No.</a></li>
+            <li class="pull-right"><a data-toggle="pill" href="../login.html">ऑनलाइन आवेदन करें/Apply Online</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade in active" style="border-style: groove;">
+                <form action="#" method="POST" style="border-style:groove; margin: 5 5 5 5;">
+                    <div style="border-style: groove; margin: 10 10 10 10; padding: 10 10 10 10 ;">
+                        <div class="row">
+                            <div class=" col-lg-5 col-sm-12 ">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-4">
+                                    <label for="name" class="control-label">नाम/Name * </label>
+                                </div>
+                                <div class="col-lg-7 ">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Name (Required)" autocomplete="off" required/>
+                                </div>
+                            </div>
+                            <div class=" col-lg-7 col-sm-12 ">
+                                <div class="col-lg-6 ">
+                                    <label for="name" class="control-label">पिता / पति का नाम (Father's/Husband's Name)*</label>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Name (Required)" autocomplete="off" required/>
+                                </div>
+                            </div>
+
+                            <div class=" col-lg-5 col-sm-12">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-4">
+                                    <label for="name " class="control-label"> जन्म तिथि/DoB *</label>
+                                </div>
+                                <div class="col-lg-7 ">
+                                    <input type="date" id="date" name="DOB" class="form-control" min="1960-01-01" max="2000-12-31">
+                                </div>
+                            </div>
+                            <div class=" col-lg-7 col-sm-12 ">
+                                <div class="col-lg-6 ">
+                                    <label for="Gender" class="control-label">लिंग/Gender</label>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <input type="radio" name="radio" value="male">Male
+                                    <input type="radio" name="radio" value="male">Female
+                                    <input type="radio" name="radio" value="male">Other
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="border-style: groove; margin: 10 10 10 10; padding: 10 10 10 10 ;">
+
+                        <div class="row">
+                            <div class=" col-lg-5 col-sm-12 ">
+
+                                <div class="col-lg-5 ">
+                                    <label for="State " class="control-label ">राज्य/State * </label>
+                                </div>
+                                <div class="col-lg-7 ">
+                                    <input type="text " class="form-control " name="name " id="name " placeholder="Name (Required) " autocomplete="off " required/>
+                                </div>
+
+                                <div class="col-lg-5 ">
+                                    <label for="State " class="control-label ">जिला/ District</label>
+                                </div>
+                                <div class="col-lg-7 ">
+                                    <input type="text " class="form-control " name="name " id="name " placeholder="Name (Required) " autocomplete="off " required/>
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <label for="name " class="control-label ">विधानसभा निर्वाचन क्षेत्र<br>Assembly Constituency</label>
+                                </div>
+                                <div class="col-lg-7 ">
+                                    <input type="text " class="form-control " name="name " id="name " placeholder="Name (Required) " autocomplete="off " required/>
+                                </div>
+                            </div>
+                            <div class=" col-lg-7 col-sm-12 ">
+                                <div class="col-lg-6 ">
+                                    <label for="name " class="control-label ">कोड / Code *</label>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <input type="text " class="form-control " name="name " id="name " placeholder="Name (Required) " autocomplete="off " required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div id="menu2" class="tab-pane fade in active" style="border-style: groove;">
+                <form action="#" method="POST" style="border-style:groove; margin: 5 5 5 5;">
+                    <div style="border-style: groove; margin: 10 10 10 10; padding: 10 10 10 10 ;">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label for="name" class="control-label">मतदाता पहचान-पत्र क्र./EPIC No. * </label>
+                            </div>
+                            <div class="col-lg-5 ">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name (Required)" autocomplete="off" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label for="name" class="control-label">राज्य/State</label>
+                            </div>
+                            <div class="col-lg-5 ">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name (Required)" autocomplete="off" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label for="name" class="control-label">कोड / Code * </label>
+                            </div>
+                            <div class="col-lg-5 ">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name (Required)" autocomplete="off" required/>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="container-fluid mt-2 " style="background-color: rgb(12, 89, 109); width: 100%; ">
+        <div class="row ">
+            <div class="col-lg-7 col-sm-12 ">
+                <div class="text-white text-capitalize pt-3 ">
+                    <h2>contact us</h2>
+                </div>
+                <div>
+                    <p class="text-light pt-3 ">For details of eligibility criteria or any other additional information related to electoral forms, kindly visit<a href="# "> https://eci.gov.in</a></p>
+                </div>
+                <div>
+                    <p class="text-light ">For any other technical feedback or issues on the portal kindly send your feedback to ECI Technical Support Toll free Number :1800111950</p>
+                </div>
+            </div>
+            <div class=" col-lg-5 col-sm-12 ">
+                <div class="text-white text-capitalize pt-lg-3 ">
+                    <h2>Other Links</h2>
+                </div>
+                <div class="text-capitalize font-weight-bold pt-3 ">
+                    <a class="text-white " href="# ">Election Commission of India</a>
+                </div>
+                <div class="text-capitalize font-weight-bold pt-3 ">
+                    <a class="text-white " href="# ">Chief Electoral Officer</a>
+                </div>
+            </div>
+            <div class="col-12 text-center text-white ">
+                <hr class="bg-light ">
+                <p>National Voter's Service Portal © Copyright 2019. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav ");
+        if (x.className === "topnav ") {
+            x.className += " responsive ";
+        } else {
+            x.className = "topnav ";
+        }
+    }
+</script>
+
+</html>
+<div class="col-12 text-center text-white ">
+    <hr class="bg-light ">
+    <p>National Voter's Service Portal © Copyright 2019. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+
+</body>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav ");
+        if (x.className === "topnav ") {
+            x.className += " responsive ";
+        } else {
+            x.className = "topnav ";
+        }
+    }
+</script>
+
+</html>

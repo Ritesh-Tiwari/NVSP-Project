@@ -1,0 +1,18 @@
+.myform {
+    position: relative;
+    margin-left: 30%;
+    margin-top: 1%;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 50%;
+    pointer-events: auto;
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 1.1rem;
+    outline: 1;
+    max-width: 500px;
+}
